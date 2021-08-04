@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+        <input type="checkbox" value="篮球" v-model="hobby">basketball
+        <input type="checkbox" value="足球" v-model="hobby">football
+        <input type="checkbox" value="排球" v-model="hobby">volleyball
+        <h1>{{hobby}}</h1>
+
+        <label for="">
+            <input type="checkbox" v-model="isArgee">argee
+        </label>
+        <h1>你选择的是{{isArgee}}</h1>
+        <button :disabled="!isArgee">下一步</button>
+    </div>
+
+<script src="vue.js"></script>
+<script>
+    const vue = new Vue({
+        el:"#app",
+        data:{
+            hobby:[],
+            isArgee:false
+        }
+    })
+</script>
+
+</body>
+
+</html>
