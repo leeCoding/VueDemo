@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        ///
+        <h2 :style="{fontSize: h_fontSize + 'px'}"> 这是一个中等标题 </h2>
+    </div>
+
+<script src="vue.js"></script>
+<script>
+
+    const vue = new Vue ({
+        el:"#app",
+        data:{
+            h_fontSize:60,
+            title:"这是标题"
+        }
+    })
+
+</script>
+</body>
+
+</html>
