@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if语法</title>
+</head>
+
+<body>
+
+<div id = "app">
+    <div v-if = "temp_score == 0">
+     <h1>分数为0</h1>
+    </div>
+    <div v-else-if = "temp_score == 1">
+        <h1>分数为1</h1>
+    </div>
+    <div v-else>
+        <h1> 分数为2</h1>
+    </div>
+</div>
+    
+    <script src="vue.js"></script>
+    <script>
+
+        const vue = new Vue({
+            el:"#app",
+            data:{
+                temp_score:0,
+            },            
+        })
+
+    </script>
+</body>
+
+</html>
