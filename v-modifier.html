@@ -1,0 +1,31 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <!-- 修饰符 -->
+    <div id="app" @click="divEvent">
+        <h1>lalalalal</h1>
+        <button @click.stop="todo">ANNIU</button>
+
+    </div>
+    
+    <script src="vue.js"></script>
+    <script>
+
+    const app = new Vue({
+        el:"#app",
+        methods:{
+            todo(){
+                console.log('todo');
+            },
+            divEvent(){
+                console.log('divEvent');
+            }
+        }
+})
+
+    </script>
+</body>
+
+</html>
