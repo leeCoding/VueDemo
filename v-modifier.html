@@ -3,11 +3,11 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    <!-- 修饰符 -->
+    <!-- 修饰符 & 界面事件 -->
     <div id="app" @click="divEvent">
         <h1>lalalalal</h1>
         <button @click.stop="todo">ANNIU</button>
-
+        <button @click.stop="divEventClick($event)">点击事件</button>
     </div>
     
     <script src="vue.js"></script>
@@ -21,6 +21,10 @@
             },
             divEvent(){
                 console.log('divEvent');
+            },
+            // 传入 ¥event 时打印界面数据
+            divEventClick(text) {
+                console.log(text);
             }
         }
 })
