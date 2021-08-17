@@ -8,6 +8,7 @@
         <h1>lalalalal</h1>
         <button @click.stop="todo">ANNIU</button>
         <button @click.stop="divEventClick($event)">点击事件</button>
+        <input type="text" @keyup.enter="keyup">
     </div>
     
     <script src="vue.js"></script>
@@ -25,6 +26,12 @@
             // 传入 ¥event 时打印界面数据
             divEventClick(text) {
                 console.log(text);
+            },
+            submitClick(){
+                console.log('键盘点击');
+            },
+            keyup(){
+                console.log('wdedwe');
             }
         }
 })
