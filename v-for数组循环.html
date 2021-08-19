@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    </head>
+
+    <body>
+        
+        <div id="app">
+
+            <ul>
+                <li v-for="(item,index) in movies" 
+                :class="{active: currentIndex}" 
+                @click="liClick(index)">
+                    {{index}}.{{item}}</li>
+            </ul>
+
+        </div>
+        <script src="vue.js"></script>
+        <script>
+            const vue = new Vue({
+                el:"#app",
+                data:{
+                    
+                    movies:["aa","bb","cc","dd"],
+                    currentIndex:true
+
+                },
+                methods:{
+                    liClick(index){
+                        console.log('dafdfsdf');
+                        this.currentIndex = index
+                    }
+                }
+            })
+        </script>
+
+
+    </body>
+</html>
