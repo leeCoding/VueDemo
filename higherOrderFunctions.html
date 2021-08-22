@@ -6,11 +6,37 @@
 </head>
 <body>
     <script>
-        let numbers = [12,12,3,23]
+        const numbers = [1,2,3,4]
+        // 过滤器
         let newNumbers = numbers.filter(function(n){
-            return n<10
+            return n<1
         })
         console.log(newNumbers)
+
+        // 汇总
+        let newNumbers2 = numbers.reduce(function(pre,n){
+           return pre+n
+        })
+        console.log("啦啦啦" + newNumbers2);
+
+        // 映射遍历
+        let newNumber3 = numbers.map(function(n){
+            return n * 2
+        })
+        console.log(newNumber3);
+
+        // 组合使用
+        let total = numbers.filter(function(n){
+            return n>1
+        }).map(function(n){
+            return n * 2
+        }).reduce(function(p,n){
+            console.log("汇总个数:",p,n);
+            return p+n
+
+        },0)
+        console.log("汇总:",total);
+        
 
     </script>
 
