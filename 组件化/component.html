@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件化</title>
+</head>
+<body>
+    <div id="app">
+        <cnp1></cnp1>
+        <!-- <h1>{{message}}</h1> -->
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+
+        // 1.组件使用
+        // const cnpC1 = Vue.extend({
+        //     template:'<div><h1>我是标题</h1></div>'
+        // })
+        // // 公共组件
+        // Vue.component('cnp1',cnpC1)
+        // const app = new Vue({
+        //     el:'#app',
+        //     // 私有组件
+        //     // components:{
+        //     //     cnp:cnpC1
+        //     // },
+        //     data:{
+        //         message:'lalal'
+        //     }
+        // })
+
+        // 2.父子组件
+        //  const cnpC1 = Vue.extend({
+        //     template:'<div><h1>我是标题</h1></div>'
+        // })
+
+        // const cnpC2 = Vue.extend({
+        //     template:'<div><h1>我是标题</h1><cnp></cnp></div>',
+        //     components:{
+        //         cnp:cnpC1
+        //     }
+        // })
+        // const app = new Vue({
+        //     el:'#app',
+        //     // 私有组件
+        //     components:{
+        //         cnp1:cnpC2
+        //     },
+        //     data:{
+        //         message:'lalal'
+        //     }
+        // })
+
+        // 3.语法糖写法
+        Vue.component("cnp1",{
+            template:'<div><h1>我是标题</h1></div>'
+        })
+
+    </script>
+
+</body>
+
+</html>
