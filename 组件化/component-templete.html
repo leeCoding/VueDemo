@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件化分离写法</title>
+</head>
+<body>
+    <div id="app">
+        <cnp1></cnp1>
+        <!-- <h1>{{message}}</h1> -->
+    </div>
+    <!-- 1. 一种写法 -->
+    <!-- <script type="text/x-template" id="cnp">
+        <div>
+            <h1>我是标题</h1>
+        </div>
+    </script> -->
+
+    <!-- 2.二种写法 -->
+    <template id="cnp">
+        <div>
+            <h1>我是标题</h1>
+        </div>
+    </template>
+    <script src="../vue.js"></script>
+    <script>
+        
+        // 3.语法糖写法
+        Vue.component("cnp1",{
+            template:'#cnp'
+        })
+
+        const app = new Vue({
+            el:"#app",
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>
