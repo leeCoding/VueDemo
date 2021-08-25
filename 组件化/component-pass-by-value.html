@@ -6,17 +6,12 @@
 </head>
 <body>
     <div id="app">
-        <cnp1 :p_movies="movies" :msg="mssage"></cnp1>
+        <!-- 传值 -->
+        <cnp1 :p_movies="movies" :msg="mssage"></cnp1>     
         <!-- <h1>{{message}}</h1> -->
     </div>
-    <!-- 1. 一种写法 -->
-    <!-- <script type="text/x-template" id="cnp">
-        <div>
-            <h1>我是标题</h1>
-        </div>
-    </script> -->
-
-    <!-- 2.二种写法 -->
+    
+    <!-- 组件 -->
     <template id="cnp">
         <div>
             <h1>{{msg}}</h1>
@@ -26,7 +21,7 @@
     <script src="../vue.js"></script>
     <script>
         
-        // 3.语法糖写法
+        // 注册组件
         Vue.component("cnp1",{
             template:'#cnp',
             props:{

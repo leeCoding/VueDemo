@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件化子组件向父组件传递信息</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 传值  3.v-on 绑定子视图点击方法 -->
+        <cnp1 @itemclick="cnpClick" :p_movies = "movies"></cnp1>     
+    </div>
+    
+    <!-- 组件 -->
+    <template id="cnp">
+        <div>
+            <!-- 1.创建点击方法 -->
+            <button v-for="item in p_movies" 
+            @click="btnClick(item)"> {{item}} 
+        </button>
+        </div>
+    </template>
+    <script src="../vue.js"></script>
+    <script>
+        
+        // 注册组件
+        Vue.component("cnp1",{
+            template:'#cnp',
+            methods:{
+
+                // 2.在注册组件监听点击事件，并发射出去
+                btnClick(item){
+                    console.log("子视图"+item);
+                    // 使用这个 $emit 发射出去
+                    this.$emit("itemclick",item)
+                }
+            },
+            props:{
+                p_movies:Array
+            }
+
+        })
+
+        const app = new Vue({
+            el:"#app",
+            data:{
+                movies:["蜘蛛侠","钢铁侠"],
+                mssage:"我是字符串"
+            },
+            methods:{
+                // 4.监听组件内事件方法调用
+                cnpClick(item){
+                    console.log("父==",item);
+                }
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>
