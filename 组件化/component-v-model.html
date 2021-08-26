@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件化父子对传和model结合</title>
+</head>
+<body>
+
+    <!-- 主体 -->
+    <div id="app">
+        <cnp></cnp>
+    </div>
+    <!-- 模版 -->
+    <template id="cnp">
+        <div>
+            <h1>我是标题</h1>
+        </div>
+    </template>
+    <script src="../vue.js"></script>
+    <script>
+        
+        // 3.语法糖写法
+        // Vue.component("cnp1",{
+        //     template:'#cnp'
+        // })
+
+        const app = new Vue({
+            el:"#app",
+            components:{
+                cnp:{
+                    template:"#cnp"
+                }
+            }
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>
