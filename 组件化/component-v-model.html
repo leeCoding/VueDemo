@@ -8,28 +8,71 @@
 
     <!-- 主体 -->
     <div id="app">
-        <cnp></cnp>
+        <cnp :pnumber1="number" :pnumber2="number2" 
+              @number1change="number1Change"
+              @numer2change="number2Change"
+
+        ></cnp>
     </div>
     <!-- 模版 -->
     <template id="cnp">
         <div>
             <h1>我是标题</h1>
+
+            <h2>pro:{{pnumber1}}</h2>
+            <h2>data:{{dnumber1}}</h2>
+            <!-- <input type="text" v-model="dnumber1"> -->
+            <input type="text" :value = "dnumber1" @input="input1">
+            <h2>pro:{{pnumber2}}</h2>
+            <h2>data:{{dnumber2}}</h2>
+            <!-- <input type="text" v-model="dnumber2"> -->
+            <input type="text" :value = "dnumber2" @input="input2">
         </div>
     </template>
     <script src="../vue.js"></script>
     <script>
-        
-        // 3.语法糖写法
-        // Vue.component("cnp1",{
-        //     template:'#cnp'
-        // })
 
         const app = new Vue({
             el:"#app",
+            data:{
+                number:"1",
+                number2:"2",
+            },
+            methods:{
+                number1Change(value){
+                    this.number = value
+                },
+                number2Change(value){
+                    this.number2 = value
+                }
+            },
             components:{
                 cnp:{
-                    template:"#cnp"
+                    template:"#cnp",
+                    props:{
+                        pnumber1:String,
+                        pnumber2:String
+                    },
+                    data(){
+                        return {
+                            // 使用对象绑定
+                            dnumber1:this.number,
+                            dnumber2:this.number2
+                        }
+                    },
+                    methods:{
+                        input1(event){
+                            this.dnumber1 = event.target.value
+                            //w 
+                            this.$emit("number1change",this.dnumber1)
+                        },
+                        input2(event){
+                            this.dnumber2 = event.target.value
+                            this.$emit("number2change",this.dnumber2)
+                        }
+                    }
                 }
+                
             }
 
         })
