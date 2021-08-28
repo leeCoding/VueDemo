@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件化-父访问子-ref</title>
+</head>
+<body>
+    <div id="app">
+        <cnp ref="cnpref"></cnp>
+        <button @click="showChilden">按钮</button>
+
+    </div>
+    
+    <!-- 组件 -->
+    <template id="cnp">
+        <div>
+            <h1>我是子组件</h1>
+        </div>
+    </template>
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:"#app",
+            methods:{
+                showChilden(){
+                    console.log("wasdkjfalksdjflakjsdlfj");
+                    console.log("print:",this.$refs.cnpref.name);
+                }
+            },
+            data:{
+                msg:"我是"
+            },
+            components:{
+                cnp:{
+                    template:"#cnp",
+                    // 放属性
+                    data(){
+                        return {
+                            name:"我是子组件的name"
+                        }
+                    }
+                
+                }
+            }
+
+        })
+        
+    </script>
+
+</body>
+
+</html>
