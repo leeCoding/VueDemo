@@ -6,6 +6,7 @@
 </head>
 <body>
     <div id="app">
+        <!-- 使用引用 ref 定义组件名字 -->
         <cnp ref="cnpref"></cnp>
         <button @click="showChilden">按钮</button>
 
@@ -24,6 +25,7 @@
             methods:{
                 showChilden(){
                     console.log("wasdkjfalksdjflakjsdlfj");
+                    // 调用refs 来使用
                     console.log("print:",this.$refs.cnpref.name);
                 }
             },

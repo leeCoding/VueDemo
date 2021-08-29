@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件化子组件访问父组件属性</title>
+</head>
+<body>
+
+    <div id = "app">
+
+        <cnp></cnp>
+
+    </div>
+    
+    <template id="cnp">
+        <div>
+
+            <h1>我是标题</h1>
+            <ccnp></ccnp>
+
+        </div>
+       
+    </template>
+
+    <template id="ccnp">
+        <div>
+
+            <h2>我是子组件</h2>
+        <button @click="showchildren"></button>
+
+        </div>
+        
+    </template>
+
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:"#app",
+            data:{
+                root:"我是root"
+            },
+            components:{
+                cnp:{
+                    template:"#cnp",
+                    data(){
+                        return{
+                            name:"parent"
+                        }
+                    },
+                    components:{
+
+                        ccnp:{
+                            template:"#ccnp",
+                            methods:{
+                                showchildren(){
+
+                                    console.log("父属性",this.$parent.name);
+                                    console.log("根属性",this.$root.root);
+                                }                                
+                            }
+                        }
+
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
