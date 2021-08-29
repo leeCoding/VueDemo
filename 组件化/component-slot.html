@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件化插槽使用</title>
+</head>
+<body>
+
+    <div id = "app">
+
+        <cnp>
+            <!-- 3.根据名字替换插槽 4.不写名字按顺序替换-->
+            <button slot="center"> 按钮 </button>
+        </cnp>
+
+    </div>
+    
+    <template id="cnp">
+        <div>
+
+            <h1>我是标题</h1>
+            <!-- 1.预留插槽位置
+                 2.定义插槽名字 -->
+            <slot name="center"><h1>中间</h1></slot>
+        </div>
+       
+    </template>
+
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:"#app",
+            data:{
+                root:"我是root"
+            },
+            components:{
+                cnp:{
+                    template:"#cnp",
+                    data(){
+                        return{
+                            name:"parent"
+                        }
+                    },
+                    
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
