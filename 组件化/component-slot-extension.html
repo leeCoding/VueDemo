@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插槽的作用域</title>
+</head>
+<body>
+    
+    <div id="app">
+        <cnp>
+        </cnp>
+        <cnp>
+            <!-- 获取插槽 -->
+            <template slot-scope="slot">
+                <!-- <span v-for="item in slot.data">{{item}}</span> -->
+                <span>{{slot.data.join("*")}}</span>
+            </template>
+        </cnp>
+
+    </div>
+
+    <!-- 组件 -->
+    <template id="cnp">
+        <div>
+            <!-- data 传值 -->
+            <slot :data="movies">
+                <ul>
+                    <li v-for="item in movies">{{item}}</li></ul>
+            </slot>
+        </div>
+    </template>
+    <script src="../vue.js"></script>
+    <script>
+
+        const app = new Vue({
+            el:"#app",
+            data:{
+                message:"welcome to beijing"
+            },
+            components:{
+                cnp:{
+                    template:"#cnp",
+                    data(){
+                        return{
+                            movies:["Java","OC","Swift"]
+                        }
+                    }
+                }
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>
