@@ -1,14 +1,17 @@
 {
-  // 名字
   "name": "meetwebpack",
   "version": "1.0.0",
-  "description": "test",
+  "description": "testdfd",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"webpack"
+    "build": "webpack"
   },
   "author": "nil",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^6.2.0",
+    "style-loader": "^3.2.1",
+    "webpack-cli": "^4.8.0"
+  }
 }
-
